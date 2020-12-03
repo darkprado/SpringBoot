@@ -21,6 +21,10 @@ public class PersonService {
         return personDao.save(person);
     }
 
+    public Person findByName(String name) {
+        return personDao.findByName(name);
+    }
+
     public long getPersonCount() {
         return personDao.count();
     }

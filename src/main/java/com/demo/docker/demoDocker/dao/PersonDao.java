@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PersonDao extends CrudRepository<Person, Long> {
+
+    Person findByName(String name);
+
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -19,11 +20,11 @@ public class PersonController {
     private final PersonService personService;
 
     @GetMapping(value = "/show/all")
-    public ResponseEntity<List<Person>> addPerson() {
+    public ResponseEntity<List<Person>> findAllPersons() {
         return ResponseEntity.ok(personService.findAll());
     }
 
-    @GetMapping(value = "/add/{name}/{age}", produces = {"application/json"})
+    @PostMapping(value = "/add/{name}/{age}", produces = {"application/json"})
     public ResponseEntity<Person> addPerson(
             @PathVariable("name") String name,
             @PathVariable("age") Integer age
@@ -32,6 +33,13 @@ public class PersonController {
         person.setName(name);
         person.setAge(age);
         return ResponseEntity.ok(personService.save(person));
+    }
+
+    @GetMapping(value = "/get/{name}", produces = {"application/json"})
+    public ResponseEntity<Person> findPersonByName(
+            @PathVariable("name") String name
+    ) {
+        return ResponseEntity.ok(personService.findByName(name));
     }
 
     @GetMapping(value = "/show/count", produces = {"application/json"})
