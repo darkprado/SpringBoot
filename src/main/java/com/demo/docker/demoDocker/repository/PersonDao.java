@@ -1,4 +1,4 @@
-package com.demo.docker.demoDocker.dao;
+package com.demo.docker.demoDocker.repository;
 
 import com.demo.docker.demoDocker.model.Person;
 import org.springframework.data.repository.CrudRepository;

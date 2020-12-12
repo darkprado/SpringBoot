@@ -1,6 +1,6 @@
 package com.demo.docker.demoDocker.service;
 
-import com.demo.docker.demoDocker.dao.PersonDao;
+import com.demo.docker.demoDocker.repository.PersonDao;
 import com.demo.docker.demoDocker.model.Person;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
